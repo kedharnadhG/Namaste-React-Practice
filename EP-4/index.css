@@ -1,57 +1,57 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    /* padding: 10px; */
-    border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 10px; */
+  border: 1px solid black;
 }
 
 .logo {
-    width: 100px;
+  width: 100px;
 }
 
 .nav-items > ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0px 20px;
-    font-size: 1.2rem;
+  display: flex;
+  list-style-type: none;
+  padding: 0px 20px;
+  font-size: 1.2rem;
 }
 
 .nav-items > ul > li {
-    margin: 10px;
-    padding: 10px;
-    cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.search{
-    padding: 10px;
-    border: 1px solid black;
-    margin: 10px;
+.search {
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
 }
 
 .res-card {
-    width: 200px;
-    /* we can remove height as well */
-    height: 350px;  
-    /* margin: 10px; */
-    padding: 5px;
-    border: 1px solid transparent;
-    transition: border 0.2 ease;
+  width: 200px;
+  /* we can remove height as well */
+  height: 380px;
+  /* margin: 10px; */
+  padding: 5px;
+  border: 1px solid transparent;
+  transition: border 0.2 ease;
 }
 
 .res-logo {
-    width: 100%;
-    height: 50%;
+  width: 100%;
+  height: 50%;
 }
 
 .res-card:hover {
-    cursor: pointer;
-    border: 1px solid black;
-    
+  cursor: pointer;
+  border: 1px solid black;
 }
 
-.res-card > h4, h5 {
-    margin: 0.5rem 0rem;
-    padding: 0px;
+.res-card > h4,
+h5 {
+  margin: 0.5rem 0rem;
+  padding: 0px;
 }
 
 /* .res-container {
@@ -68,4 +68,42 @@
   flex-wrap: wrap;
   gap: 1.4rem; /* uniform spacing */
   justify-content: flex-start;
+}
+
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem; /* uniform spacing */
+  justify-content: flex-start;
+}
+
+.shimmer-card {
+  width: 200px;
+  /* we can remove height as well */
+  height: 350px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid transparent;
+  transition: border 0.2 ease;
+}
+
+.login {
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.filter {
+  display: flex;
+}
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
 }
