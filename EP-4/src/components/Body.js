@@ -2,7 +2,7 @@ import RestaurantCard from "./RestaurantCard.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
-
+import useOnlineStatus from "../utils/useOnlineStatus.js";
 const Body = () => {
   // Local state-variable -super powerful variable (array-destructuring on the fly)
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -28,7 +28,14 @@ const Body = () => {
     );
   };
 
-  // not using keys (not acceptable) <<<< index as key <<<<<<<<<<<<<<  unique id  (best practice)
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks like you are offline!! Please check your internet connection
+      </h1>
+    );
 
   // conditional rendering
   return listOfRestaurants.length === 0 ? (
