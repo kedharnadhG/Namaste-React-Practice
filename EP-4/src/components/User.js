@@ -3,21 +3,21 @@ import { useEffect, useState } from "react";
 const User = ({ name }) => {
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      console.log("Namaste React OP");
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     console.log("Namaste React OP");
+  //   }, 1000);
 
-    console.log("useEffect called");
-    return () => {
-      clearInterval(timer);
-      console.log(
-        "Function Component Will Unmount called, useEffect return called"
-      );
-    };
-  }, []);
+  //   console.log("useEffect called");
+  //   return () => {
+  //     clearInterval(timer);
+  //     console.log(
+  //       "Function Component Will Unmount called, useEffect return called"
+  //     );
+  //   };
+  // }, []);
 
-  console.log("render");
+  // console.log("render");
   return (
     <div className="user-card m-4 p-4 bg-gray-50 rounded-lg">
       <h1>Count: {count}</h1>

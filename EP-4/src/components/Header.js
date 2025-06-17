@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LOGO_URL from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   // let btnName = "Login";
 
   const [btnNameReact, setBtnNameReact] = useState("Login");
 
-  // if no dependency array => useEffect is called on every render
-  // if empty dependency array = [] => useEffect is called on first(Initial) render (just once)
-  // if dependency array = [btnNameReact] => useEffect is called on every render & whenever btnNameReact changes
-  // useEffect(() => {
-  //   console.log("useEffect called");
-  // }, [btnNameReact]);
 
   const onlineStatus = useOnlineStatus();
+
+  const {loggedInUser} = useContext(UserContext);
+  console.log(loggedInUser);
 
   return (
     <div className="flex bg-pink-100 sm:bg-yellow-200 lg:bg-green-100 justify-between shadow-lg">
@@ -42,7 +40,7 @@ const Header = () => {
           </li>
           <li className="px-4">Cart</li>
           <button
-            className="px-4 border-2 border-black bg-green-300"
+            className="px-4 border-1"
             onClick={() => {
               btnNameReact === "Login"
                 ? setBtnNameReact("Logout")
@@ -51,6 +49,7 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
+          <li className="px-4 font-bold">{loggedInUser ? loggedInUser : ""}</li>
         </ul>
       </div>
     </div>

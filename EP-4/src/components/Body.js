@@ -1,15 +1,19 @@
-import RestaurantCard from "./RestaurantCard.js";
+import RestaurantCard, { withTopRatedLabel } from "./RestaurantCard.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext.js";
+
 const Body = () => {
   // Local state-variable -super powerful variable (array-destructuring on the fly)
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  console.log("body rendered");
+  // Higher Order Component (calling a function that returns a new component which has "TopRatedLabel" in it)
+  const RestaurantCardTopRated = withTopRatedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -36,6 +40,8 @@ const Body = () => {
         Looks like you are offline!! Please check your internet connection
       </h1>
     );
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   // conditional rendering
   return listOfRestaurants.length === 0 ? (
@@ -83,6 +89,13 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
+        <div className="m-2 p-4 flex items-center ">
+          <label className="pr-2 ">UserName: </label>
+            <input className="border p-1 border-black rounded-md"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+        </div>
       </div>
 
       {/* restaurantContainer */}
@@ -94,7 +107,15 @@ const Body = () => {
             key={restaurant?.info?.id}
             className="res-link"
           >
-            <RestaurantCard resData={restaurant.info} />
+            {
+              /* if the restaurant's "avgRating" is > 4.5 => "Top Rated" , do using HOC  */
+
+              restaurant?.info?.avgRating >= 4.5 ? (
+                <RestaurantCardTopRated resData={restaurant.info} />
+              ) : (
+                <RestaurantCard resData={restaurant.info} />
+              )
+            }
           </Link>
         ))}
       </div>
