@@ -20,10 +20,10 @@ const RestaurantMenu = () => {
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card
       ?.card?.itemCards;
 
-  console.log(
-    "total menu card-wise items",
-    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-  );
+  // console.log(
+  //   "total menu card-wise items",
+  //   resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+  // );
 
   const categories =
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -38,7 +38,7 @@ const RestaurantMenu = () => {
       }
     );
 
-  console.log("categories", categories);
+  // console.log("categories", categories);
 
   return (
     <div className="text-center">
