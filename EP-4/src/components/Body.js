@@ -54,7 +54,8 @@ const Body = () => {
         <div className="m-2 p-4">
           <input
             type="text"
-            className="border border-black border-solid rounded-lg"
+            data-testid="searchInput"
+            className="border border-black p-2 border-solid rounded-lg"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
@@ -62,7 +63,7 @@ const Body = () => {
             className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               //filter the restaurant-cards and update the ui
-              console.log(searchText);
+              // console.log(searchText);
 
               const filteredRestaurants = listOfRestaurants.filter((res) => {
                 return res?.info.name
@@ -80,10 +81,10 @@ const Body = () => {
             className="px-4 py-2 rounded-lg bg-gray-200"
             onClick={() => {
               //filter logic
-              setListOfRestaurants(
+              setFilteredRestaurants(
                 listOfRestaurants.filter((res) => res.info.avgRating > 4.5)
               );
-              console.log(listOfRestaurants);
+              // console.log(listOfRestaurants);
             }}
           >
             Top Rated Restaurants
@@ -91,10 +92,11 @@ const Body = () => {
         </div>
         <div className="m-2 p-4 flex items-center ">
           <label className="pr-2 ">UserName: </label>
-            <input className="border p-1 border-black rounded-md"
-              value={loggedInUser}
-              onChange={(e) => setUserName(e.target.value)}
-            />
+          <input
+            className="border p-1 border-black rounded-md"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
 

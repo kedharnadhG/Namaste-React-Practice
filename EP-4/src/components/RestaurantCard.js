@@ -14,7 +14,10 @@ const RestaurantCard = ({ resData }) => {
     slaString,
   } = resData;
   return (
-    <div className="m-4 p-4 w-[250px] h-[450px]  rounded-lg bg-gray-100 hover:bg-gray-300">
+    <div
+      data-testid="resCard"
+      className="m-4 p-4 w-[250px] h-[450px]  rounded-lg bg-gray-100 hover:bg-gray-300"
+    >
       <img
         src={CDN_URL + cloudinaryImageId}
         className="rounded-lg shadow-lg w-50 h-50"
